@@ -49,17 +49,22 @@ table {
 	border-spacing: 0;
 }
 
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
 /* colors and font */
 :root {
 
 }
 
-#root {
+/* #root 
   max-width: 1280px;
   margin: 0 auto;
   /* padding: 2rem; */
   /* text-align: center; */
-}
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -68,14 +73,14 @@ body {
   /* max-width: 1280px; */
 }
 
-.sr-only {
+/* .sr-only {
 	position: absolute;
 	left: -10000px;
 	top: auto;
 	width: 1px;
 	height: 1px;
 	overflow: hidden;
-}
+} */
 
 /* HEADER  */
 .header {

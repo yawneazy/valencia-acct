@@ -9,9 +9,9 @@ function App() {
   return (
     <>
     <header>
-      <div class="header">
-        <div class="logo-container">
-        <img class="main-logo" src={valenciaAcctLogo} alt="valencia-acct-logo"/>
+      <div className="header">
+        <div className="logo-container">
+        <img className="main-logo" src={valenciaAcctLogo} alt="valencia-acct-logo"/>
         </div>
         <nav>
           <ul>
@@ -22,12 +22,12 @@ function App() {
             </ul>
         </nav>
       </div>
-      <div class="phone-number-container">
+      <div className="phone-number-container">
         <p>(555)555-5555</p>
       </div>
     </header>
     <main>
-      <div class="services-container">
+      <div className="services-container">
 
       </div>
     </main>
@@ -50,31 +50,11 @@ function App() {
         {/* required */}
         <input id="message" name="message" type="text" />
 
-        <div class="submit-btn-container">
+        <div className="submit-btn-container">
           <button type="submit" id="submit">Submit</button>
         </div>
       </form>
     </footer>
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
     </>
   )
 }
