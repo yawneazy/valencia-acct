@@ -49,62 +49,73 @@ table {
 	border-spacing: 0;
 }
 
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
-/* colors and font */
-:root {
-
-}
-
-/* #root 
-  max-width: 1280px;
-  margin: 0 auto;
-  /* padding: 2rem; */
-  /* text-align: center; */
-
-body {
+#root, html, body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  /* max-width: 1280px; */
 }
 
-/* .sr-only {
+.sr-only {
 	position: absolute;
 	left: -10000px;
 	top: auto;
 	width: 1px;
 	height: 1px;
 	overflow: hidden;
-} */
-
-/* HEADER  */
+}
+/* MOBILE-FIRST */
+/* HEADER */
 .header {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-}
-
-nav ul{
-  display: flex;
-  list-style-type: none;
-  gap: 2rem;
-}
-
-nav ul a{
-  text-decoration: none;
+  /* justify-content: center; */
+  /* background: pink;  */
 }
 
 .logo-container {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-logo {
-  max-width: 200px;
+  max-width: 100px;
+}
+
+nav ul{
+   
+}
+
+nav ul a{
+
+}
+
+.request-consultation-btn {
+  border: 2px solid black;
+  text-align: center;
+  margin: 2rem;
+}
+
+.main-services-info {
+  padding: 10px;
+  margin: 2rem;
+  line-height: 1.5rem;
+}
+
+.card {
+  background-color: pink;
+  margin: 2rem;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+.card h3 {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.see-all-services-btn {
+
 }
 
 /* FORM */
@@ -131,12 +142,13 @@ input, label, fieldset {
   color: white;
   padding: 10px 20px;
 }
+
 /* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
-}
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
@@ -159,11 +171,30 @@ input, label, fieldset {
     animation: logo-spin infinite 20s linear;
   }
 } */
-/* 
-.card {
-  padding: 2em;
-}
 
-.read-the-docs {
-  color: #888;
-} */
+@media screen and (min-width: 1920px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav ul{
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+  }
+  
+  nav ul a{
+    text-decoration: none;
+  }
+
+  .request-consultation-btn {
+    border: 2px solid black;
+    text-align: center;
+    margin: 2rem;
+  }
+  
+  .request-consultation-btn:hover {
+    background-color: black;
+  }
+}
