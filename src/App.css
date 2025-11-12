@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/* Root colors */
+:root {
+  --color-blue: #5C7E97;
+  --color-light-green: #3B7542;
+  --color-med-green: #26572A;
+  --color-dark-green: #0C2D0E;
+  --color-footer-beige: #DDDAD5;
+}
 
+/* CSS Reset (keep as-is) */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,80 +23,103 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
+h1 {
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
+
 body {
-	line-height: 1;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
 }
+
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
+
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-#root, html, body {
-  font-family: 'Montserrat', sans-serif;
-  margin: 0;
-  padding: 0;
-}
+/* Desktop-first default styles */
 
-.sr-only {
-	position: absolute;
-	left: -10000px;
-	top: auto;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-}
-/* MOBILE-FIRST */
-/* HEADER */
+/* Header */
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes logo+nav left, button right */
+  padding: 1rem 2rem;
+}
+
+.logo-nav-container {
+  display: flex;
   /* justify-content: center; */
-  /* background: pink;  */
+  align-items: center;
 }
 
 .logo-container {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .main-logo {
-  max-width: 100px;
+  max-width: 150px;
 }
 
-nav ul{
-   
+.main-bio {
+  background-color: var(--color-blue);
+  padding: 30px;
+  color: white;
 }
 
-nav ul a{
-
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
 }
 
-.request-consultation-btn {
-  border: 2px solid black;
-  text-align: center;
-  margin: 2rem;
+nav ul li a {
+  text-decoration: none;
+  color: var(--color-dark-green);
+}
+
+.request-consultation-btn button{
+  padding: 10px 20px;
+  border: 2px solid --var(color-dark-green);
+  background-color: var(--color-med-green);
+  color: white;
+  cursor: pointer;
+}
+
+.request-consultation-btn button:hover {
+  background-color: var(--color-dark-green);
+  border-color: var(--color-dark-green);
 }
 
 .main-services-info {
@@ -100,11 +128,19 @@ nav ul a{
   line-height: 1.5rem;
 }
 
-.card {
-  background-color: pink;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 2rem; 
   margin: 2rem;
-  border-radius: 5px;
+}
+
+.card {
+  background-color: var(--color-dark-green);
+  color: white;
+  border-radius: 8px;
   padding: 2rem;
+  text-align: center;
 }
 
 .card h3 {
@@ -114,17 +150,11 @@ nav ul a{
   margin-bottom: 1rem;
 }
 
-.see-all-services-btn {
-
-}
-
-/* FORM */
 form {
   display: block;
 }
 
 form input {
-  /* border-radius: 5px; */
   outline: none;
   box-shadow: none;
 }
@@ -143,58 +173,55 @@ input, label, fieldset {
   padding: 10px 20px;
 }
 
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+footer {
+  width: 100%;                     /* span full width */
+  background-color: #f5f0e6;       /* beige color */
+  border-radius: 10px;             /* rounded corners */
+  padding: 2rem 1rem;              /* spacing inside the footer */
+  text-align: center;              /* center content */
+  box-sizing: border-box;          /* include padding in width */
+  margin-top: 2rem;                /* space above the footer */
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-} */
 
-/* @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.footer-container {
 
-/* media dark & light mode */
-/* @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-} */
+}
 
-@media screen and (min-width: 1920px) {
+/* Mobile overrides (max-width = 1024px) */
+@media screen and (max-width: 1024px) {
   .header {
-    display: flex;
-    justify-content: space-between;
+    display: block;
+    text-align: center;
   }
 
-  nav ul{
-    display: flex;
-    list-style-type: none;
-    gap: 2rem;
+  nav ul {
+    display: block;
+    gap: 1rem;
   }
-  
-  nav ul a{
-    text-decoration: none;
+
+  .main-logo {
+    max-width: 100px;
   }
 
   .request-consultation-btn {
-    border: 2px solid black;
-    text-align: center;
+    margin: 1rem;
+  }
+
+  .main-services-info {
+    margin: 1rem;
+    padding: 5px;
+  }
+
+  .card {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  /* .card {
+    background-color: var(--color-dark-green);
     margin: 2rem;
-  }
-  
-  .request-consultation-btn:hover {
-    background-color: black;
-  }
+    color: white;
+    border-radius: 5px;
+    padding: 2rem;
+  } */
 }
