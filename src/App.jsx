@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import valenciaAcctLogo from './images/main-logo-no-bckrd.jpg'
+import gabbyHeadShot from './images/gabby-home-headshot.jpg'
 
 function App() {
 
@@ -28,10 +29,16 @@ function App() {
     </header>
     <main>
       <section className="main-bio">
-        <p>Gabrielle Valencia Brosnan is an accomplished CTEC-licensed professional 
-          with a Bachelor's degree in Accounting. She brings 10 years of intensive, 
-          hands-on experience in tax preparation and accounting to her clients, providing
+        <div className="bio-content">
+      <img className="home-bio-photo" src={gabbyHeadShot} alt="gabby-head-shot"/>
+      <div className="bio-text">
+      <h1 className="company-title">Valencia Financial Group</h1>
+        <p><strong>Gabrielle Valencia Brosnan</strong> is an accomplished CTEC-licensed professional 
+          with a Bachelor's degree in Accounting. She brings <strong>10 years of intensive, 
+          hands-on experience</strong> in tax preparation and accounting to her clients, providing
           expert and efficient financial solutions.</p>
+          </div>
+          </div>
       </section>
 <h1>Our Services</h1>
       <section className="cards">
@@ -64,8 +71,9 @@ function App() {
       </section>
     </main>
     <footer>
+      <div className="right-footer-content">
     <img className="main-logo" src={valenciaAcctLogo} alt="valencia-acct-logo"/>
-      <div className='footer-container'>
+      <div className='mission-statement'>
                <p>At Valencia Accounting & Bookkeeping, our mission is to empower 
           individuals and businesses to take control of their financial 
           futures. We leverage our expertise in accounting to help individuals
@@ -76,6 +84,7 @@ function App() {
           both personal and corporate entities, helping our clients navigate the 
           complexities of taxes while ensuring long-term financial stability and 
           success.</p> 
+      </div>
       </div>
      {/*  <form id="consultation-form">
         <h2>Get in touch!</h2>
