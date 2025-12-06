@@ -31,6 +31,49 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
+.accordion {
+  margin: 0px 10px 0px 10px;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.accordion:hover,
+.accordion.active {
+  background-color: var(--color-med-green);
+  color: white;
+}
+
+.accordion:after {
+  content: '\02795'; /* plus sign */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion.active:after {
+  content: '\2796'; /* minus sign */
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: white;
+}
+
 h1 {
   padding: 5px;
   margin: 5px;
@@ -51,6 +94,12 @@ body {
 
 ol, ul {
   list-style: none;
+}
+
+.panel ul {
+  list-style: disc;       /* adds standard bullets */
+  padding-left: 20px;     /* indent bullets properly */
+  margin: 10px 10px;
 }
 
 blockquote, q {
@@ -83,12 +132,12 @@ table {
 }
 
 .home-bio-photo {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   object-position: 50% 20%; /* crop to focus on face */
-  border: 1px solid white;
+  border: .5px solid white;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
@@ -100,6 +149,7 @@ table {
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
+  padding-top: 2rem;
 }
 
 .bio-text {
@@ -108,11 +158,10 @@ table {
 
 .company-title {
   font-size: 30px;
-  text-align: left;
+  font-weight: 600;
 }
 .logo-nav-container {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -122,13 +171,12 @@ table {
 }
 
 .main-logo {
-  max-width: 150px;
+  max-width: 100px;
 }
 
 .main-bio {
-  background-color: var(--color-blue);
   padding: 20px;
-  color: white;
+  color: black;
 }
 
 nav ul {
@@ -145,13 +193,13 @@ nav ul li a {
 .request-consultation-btn button{
   padding: 10px 20px;
   border: 2px solid --var(color-dark-green);
-  background-color: var(--color-med-green);
+  background-color: var(--color-dark-green);
   color: white;
   cursor: pointer;
 }
 
 .request-consultation-btn button:hover {
-  background-color: var(--color-dark-green);
+  background-color: var(--color-med-green);
   border-color: var(--color-dark-green);
 }
 
@@ -169,11 +217,12 @@ nav ul li a {
 }
 
 .card {
-  background-color: var(--color-dark-green);
+  background-color: var(--color-med-green);
   color: white;
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .card h3 {
@@ -222,12 +271,18 @@ footer {
 
 .right-footer-content {
   display: flex;
-  flex-direction: row; 
+  justify-content: space-between; /* logo left, other content right */
   align-items: center;
-  justify-content: left;
   gap: 1rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  width: 100%;      /* full width of footer */
+  padding: 0 1rem;  /* optional: some padding inside footer */
+  box-sizing: border-box; 
+  /* remove max-width and margin auto */
+}
+
+.social-icons {
+  width: 30px;
+  height: auto;
 }
 
 /* Mobile overrides (max-width = 1024px) */
@@ -256,15 +311,11 @@ footer {
   }
 
   .card {
-    margin: 1rem;
-    padding: 1rem;
+    flex: 1 1 calc(50% - 1.5rem);
   }
-
-  /* .card {
-    background-color: var(--color-dark-green);
-    margin: 2rem;
-    color: white;
-    border-radius: 5px;
-    padding: 2rem;
-  } */
+}
+@media screen and (max-width: 600px) {
+  .card {
+    flex: 1 1 100%;
+  }
 }
