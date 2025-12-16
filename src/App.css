@@ -190,7 +190,7 @@ table {
 
 .main-bio {
   padding: 5rem 1.5rem; /* top/bottom | left/right */
-  color: black;
+  /* color: black; */
 }
 
 nav ul {
@@ -206,7 +206,7 @@ nav ul li a {
 
 .request-consultation-btn button{
   padding: 10px 20px;
-  border: 2px solid --var(color-dark-green);
+  border: 2px solid var(--color-dark-green);
   background-color: var(--color-dark-green);
   color: white;
   cursor: pointer;
@@ -217,33 +217,22 @@ nav ul li a {
   border-color: var(--color-dark-green);
 }
 
+@media (prefers-color-scheme: dark) {
+  .request-consultation-btn button {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+
+  .request-consultation-btn button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
 .main-services-info {
   padding: 10px;
   margin: 2rem;
   line-height: 1.5rem;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); 
-  gap: .5rem; 
-  margin: 1rem;
-}
-
-.card {
-  background-color: var(--color-med-green);
-  color: white;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.card h3 {
-  font-weight: bold;
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 1rem;
 }
 
 form {
@@ -321,10 +310,6 @@ footer {
   .main-services-info {
     margin: 1rem;
     padding: 5px;
-  }
-
-  .card {
-    flex: 1 1 calc(50% - 1.5rem);
   }
 }
 

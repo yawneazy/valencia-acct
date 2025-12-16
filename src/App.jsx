@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import valenciaAcctLogo from './images/main-logo-no-bckrd.jpg'
+import valenciaAcctDarkModeLogo from './images/dark-mode-logo.png'
 import gabbyHeadShot from './images/gabby-home-headshot.jpg'
 import instagramIcon from './images/IG-icon.png'
 
@@ -32,7 +33,19 @@ function App() {
       <div className="header">
       <div className="logo-nav-container">
         <div className="logo-container">
-        <img className="main-logo" src={valenciaAcctLogo} alt="valencia-acct-logo"/>
+        <picture>
+  <source
+    srcSet={valenciaAcctDarkModeLogo}
+    media="(prefers-color-scheme: dark)"
+  />
+  <img
+    className="main-logo"
+    src={valenciaAcctLogo}
+    alt="valencia-acct-logo"
+  />
+</picture>
+
+        {/* <img className="main-logo" src={valenciaAcctLogo} alt="valencia-acct-logo"/> */}
         </div>
         <nav>
           <ul>
