@@ -156,10 +156,24 @@ table {
   flex-direction: column; 
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* subtle upward motion */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .company-title {
   font-size: 30px;
   font-weight: 600;
+  opacity: 0; 
+  animation: fadeIn 1.2s ease-out forwards;
 }
+
 .logo-nav-container {
   display: flex;
   align-items: center;
@@ -175,7 +189,7 @@ table {
 }
 
 .main-bio {
-  padding: 20px;
+  padding: 5rem 1.5rem; /* top/bottom | left/right */
   color: black;
 }
 
@@ -277,7 +291,6 @@ footer {
   width: 100%;      /* full width of footer */
   padding: 0 1rem;  /* optional: some padding inside footer */
   box-sizing: border-box; 
-  /* remove max-width and margin auto */
 }
 
 .social-icons {
@@ -314,8 +327,40 @@ footer {
     flex: 1 1 calc(50% - 1.5rem);
   }
 }
-@media screen and (max-width: 600px) {
-  .card {
-    flex: 1 1 100%;
+
+@media (max-width: 768px) {
+  .logo-nav-container {
+    justify-content: center;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-logo {
+    max-width: 180px; /* optional: keeps logo from being too big */
+  }
+
+  .right-footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .main-logo {
+    margin-bottom: 1rem;
+  }
+
+  .mission-statement {
+    margin-bottom: 1rem;
+  }
+
+  .social-icons {
+    margin-top: 0.5rem;
   }
 }

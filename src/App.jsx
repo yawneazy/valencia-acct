@@ -239,7 +239,13 @@ Get clarify. Get confidence. </h1>
           complexities of taxes while ensuring long-term financial stability and 
           success.</p> 
       </div>
-      <img className="social-icons" src={instagramIcon} alt=""/>
+      <a
+  href="https://www.instagram.com/valenciafinancial/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img className="social-icons" src={instagramIcon} alt="Instagram" />
+</a>
       </div>
      {/*  <form id="consultation-form">
         <h2>Get in touch!</h2>
