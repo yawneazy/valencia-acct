@@ -32,7 +32,7 @@ time, mark, audio, video {
 }
 
 .accordion {
-  margin: 0px 10px 0px 10px;
+  margin: 0px 0px 0px 10px;
   background-color: #eee;
   color: #444;
   cursor: pointer;
@@ -65,13 +65,31 @@ time, mark, audio, video {
   content: '\2796'; /* minus sign */
 }
 
+@media (prefers-color-scheme: dark) {
+  .accordion {
+    background-color: #333; /* dark gray background */
+    color: #fff;            /* white text */
+  }
+
+  .accordion:hover,
+  .accordion.active {
+    background-color: #444; /* slightly lighter on hover/active */
+    color: #fff;
+  }
+
+  .accordion:after {
+    color: #ccc; /* lighter plus/minus icon for visibility */
+  }
+}
+
+
 /* Style the accordion panel. Note: hidden by default */
 .panel {
   padding: 0 18px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  background-color: white;
+  line-height: 1.4; 
 }
 
 h1 {
