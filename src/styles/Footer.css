@@ -1,0 +1,129 @@
+.footer {
+    padding: 3rem 1.5rem;
+    background: var(--color-footer-beige);
+    color: var(--color-dark-green);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+  
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* LEFT SIDE */
+  .footer-left {
+    flex: 1;
+    max-width: 400px;
+  }
+  
+  .footer-logo {
+    width: 120px;
+    margin-bottom: 1rem;
+  }
+  
+  .mission-text {
+    line-height: 1.5;
+    opacity: 0.85;
+    margin-bottom: 1rem;
+  }
+  
+  .social-icons a {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    color: black;
+  }
+  
+  /* RIGHT SIDE */
+  .footer-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* FORM */
+  .footer-right form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  
+  .footer-right h2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* NAME ROW */
+  .name-row {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* INPUT GROUPS */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  /* LABELS */
+  .footer-right label {
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    opacity: 0.9;
+  }
+  
+  /* INPUTS */
+  .footer-right input,
+  .footer-right textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+  }
+  
+  /* BUTTON */
+  .submit-btn-container button {
+    padding: 0.8rem;
+    background: var(--color-blue);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.2s;
+  }
+  
+  .submit-btn-container button:hover {
+    background: white;
+    color: var(--color-blue);
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-right {
+      justify-content: center;
+      width: 100%;
+    }
+  
+    .name-row {
+      flex-direction: column;
+    }
+  
+    .footer-left {
+      max-width: 100%;
+    }
+  }
