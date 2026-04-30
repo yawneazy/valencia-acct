@@ -21,7 +21,7 @@ export default function Footer() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); // later you’ll send this to email/backend
+    console.log(formData); // later make this to email/backend
   };
 
   return (
@@ -89,25 +89,27 @@ export default function Footer() {
 </div>
 
 </div>
+<div className="form-group">
+  <label htmlFor="email">Email *</label>
+  <input
+    id="email"
+    name="email"
+    type="email"
+    value={formData.email}
+    onChange={handleChange}
+  />
+</div>
 
-            <label htmlFor="email">Email *</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-
-            <label htmlFor="message">Message *</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              value={formData.message}
-              onChange={handleChange}
-            />
-
+<div className="form-group">
+  <label htmlFor="message">Message *</label>
+  <textarea
+    id="message"
+    name="message"
+    rows="4"
+    value={formData.message}
+    onChange={handleChange}
+  />
+</div>
             <div className="submit-btn-container">
               <button type="submit">Submit</button>
             </div>
