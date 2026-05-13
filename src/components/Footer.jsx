@@ -5,6 +5,7 @@ import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import valenciaAcctLogo from "../images/main-logo-no-bckrd.jpg";
 
 export default function Footer() {
+  // state
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -12,16 +13,44 @@ export default function Footer() {
     message: ""
   });
 
+  // updates fields 
+  // e = event object, e.target = actual input element that's changed
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+
+    const { name, value } = e.target
+    // setFormData({
+    //   ...formData,
+    //   [e.target.name]: e.target.value
+    // });
+    setFormData((prev) => ({
+      // prev = current state of entire formData object
+
+      ...prev,
+      // copies everything in formData, so we don't erase other fields
+
+      [name]: value
+    }))
+
+    console.log(name, value)
   };
 
   const handleSubmit = (e) => {
+    console.log("SUBMIT TEST")
     e.preventDefault();
     console.log(formData); // later make this to email/backend
+  
+    console.log("TEST:", formData)
+
+
+    // implement later: send to API
+
+    // setFormData ({
+    //   firstName: "",
+    //   lastName: "",
+    //   email: "",
+    //   message: ""
+    // })
+
   };
 
   return (
