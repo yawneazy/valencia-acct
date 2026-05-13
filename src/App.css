@@ -12,7 +12,7 @@
 }
 
 /* =========================
-   RESET (SIMPLIFIED)
+   RESET
 ========================= */
 * {
   margin: 0;
@@ -32,6 +32,9 @@ body {
   line-height: 1.4;
 }
 
+button {
+  font: inherit;
+}
 .fade-in-section {
   opacity: 0;
   transform: translateY(-30px);
@@ -144,6 +147,7 @@ h1 {
   color: white;
   border: none;
   border-radius: 8px;
+  font: inherit;
   cursor: pointer;
   font-weight: 600;
   transition: 0.3s;
