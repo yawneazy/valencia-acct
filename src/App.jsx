@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router } from "react-router-dom";
+import { FaFileInvoiceDollar, FaBookOpen, FaChartLine, FaWallet, FaStamp } from "react-icons/fa";
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import gabbyHeadShot from './images/gabby-home-headshot.jpg';
 
 function App() {
-  const [activeCard, setActiveCard] = useState(null);
+  // const [activeCard, setActiveCard] = useState(null);
+  const [activeService, setActiveService] = useState(0);
 
   const services = [
     {
+      icon: <FaFileInvoiceDollar />,
       title: "Tax Preparation & Planning",
       description: "We ensure accurate and timely filing while proactively minimizing your tax liability.",
       details: [
@@ -22,6 +25,7 @@ function App() {
       ]
     },
     {
+      icon: <FaBookOpen />,  
       title: "Business Accounting & Bookkeeping",
       description: "Gain a real-time understanding of your business finances.",
       details: [
@@ -32,6 +36,7 @@ function App() {
       ]
     },
     {
+      icon: <FaChartLine />, 
       title: "Business Advisory & Consulting",
       description: "Make smarter business decisions with financial clarity.",
       details: [
@@ -41,6 +46,7 @@ function App() {
       ]
     },
     {
+      icon: <FaWallet />, 
       title: "Personal Financial Services",
       description: "Build a strong financial foundation and eliminate debt.",
       details: [
@@ -51,6 +57,7 @@ function App() {
       ]
     },
     {
+      icon: <FaStamp />, 
       title: "Professional Notary Services",
       description: "Fast, reliable notarization for important documents.",
       details: [
@@ -94,33 +101,34 @@ function App() {
 
         {/* SERVICES */}
         <section className="services" id="services">
-          <h1>Our Services</h1>
+          <h1 className="services-title">Our Services</h1>
 
-          <div className="services-grid">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`service-card ${activeCard === index ? "active" : ""}`}
-                onClick={() => setActiveCard(index)}
-              >
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </div>
-            ))}
-          </div>
+          <div className="services-panel">
+            <div className="services-list">
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className={`services-list-item ${activeService === index ? "active" : ""}`}
+                  onClick={() => setActiveService(index)}
+                >
+                   <span className="svc-icon">{service.icon}</span>
+                  {service.title}
+                </div>
+              ))}
+            </div>
 
-          {/* DETAILS PANEL */}
-          {activeCard !== null && (
-            <div className="service-details">
-              <h3>{services[activeCard].title}</h3>
-
+            <div className="services-detail">
+            <h3>{services[activeService].icon} {services[activeService].title}</h3>
+              {/* <h3>{services[activeService].title}</h3> */}
+              <p>{services[activeService].description}</p>
               <ul>
-                {services[activeCard].details.map((item, i) => (
+                {services[activeService].details.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
               </ul>
+              {/* <button className="svc-cta">Request a Consultation</button> */}
             </div>
-          )}
+          </div>
         </section>
 
         {/* ABOUT */}

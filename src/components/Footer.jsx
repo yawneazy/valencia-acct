@@ -51,6 +51,8 @@ export default function Footer() {
     //   message: ""
     // })
 
+    // set up email service?
+
   };
 
   return (
@@ -78,6 +80,7 @@ export default function Footer() {
 //     success. */}
           </p>
 
+<hr className="footer-divider" />
           <div className="social-icons">
             <a href="https://www.instagram.com/valenciafinancial/" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
@@ -92,6 +95,7 @@ export default function Footer() {
         <div className="footer-right">
           <form id="consultation-form" onSubmit={handleSubmit}>
             <h2>Get in touch!</h2>
+<p className="footer-form-sub">We'll get back to you within one business day.</p>
 
             <div className="name-row">
 
@@ -146,6 +150,11 @@ export default function Footer() {
         </div>
 
       </div>
+      <div className="footer-bottom">
+  <span>© {new Date().getFullYear()} Valencia Financial Group. All rights reserved.</span>
+  {/* <span> Hemet, CA </span> */}
+</div>
     </footer>
+    
   );
 }
