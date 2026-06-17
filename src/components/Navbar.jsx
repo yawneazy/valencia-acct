@@ -21,17 +21,17 @@ export default function Navbar() {
 
           {/* Logo */}
           <a href="#home" className="logo-container">
-  <picture>
-    <source
-      srcSet={valenciaAcctDarkModeLogo}
-      media="(prefers-color-scheme: dark)"
-    />
-    <img
-      className="main-logo"
-      src={valenciaAcctLogo}
-      alt="logo"
-    />
-  </picture>
+          <picture>
+  <source
+    srcSet={valenciaAcctDarkModeLogo}
+    media="(prefers-color-scheme: dark)"
+  />
+  <img
+    className="main-logo"
+    src={valenciaAcctLogo}
+    alt="logo"
+  />
+</picture>
 </a>
 
           {/* Nav Links */}
@@ -48,7 +48,7 @@ export default function Navbar() {
         <div className="nav-right">
 
           <div className="request-consultation-btn">
-            <button>Request a Consultation</button>
+           <a href="#contact" className="btn-link"> Request a Consultation</a>
           </div>
 
           <div

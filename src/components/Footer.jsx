@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../styles/Footer.css";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
-
+import { NavLink } from "react-router-dom";
 import valenciaAcctLogo from "../images/main-logo-no-bckrd.jpg";
+import valenciaAcctDarkModeLogo from '../images/dark-mode-logo.png';
 
 export default function Footer() {
-  // state
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -13,74 +13,68 @@ export default function Footer() {
     message: ""
   });
 
-  // updates fields 
-  // e = event object, e.target = actual input element that's changed
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+
   const handleChange = (e) => {
-
-    const { name, value } = e.target
-    // setFormData({
-    //   ...formData,
-    //   [e.target.name]: e.target.value
-    // });
+    const { name, value } = e.target;
     setFormData((prev) => ({
-      // prev = current state of entire formData object
-
       ...prev,
-      // copies everything in formData, so we don't erase other fields
-
       [name]: value
-    }))
-
-    console.log(name, value)
+    }));
   };
 
-  const handleSubmit = (e) => {
-    console.log("SUBMIT TEST")
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData); // later make this to email/backend
-  
-    console.log("TEST:", formData)
+    setStatus("sending");
 
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    // implement later: send to API
+      const result = await response.json();
 
-    // setFormData ({
-    //   firstName: "",
-    //   lastName: "",
-    //   email: "",
-    //   message: ""
-    // })
-
-    // set up email service?
-
+      if (response.ok && result.success) {
+        setStatus("success");
+        setFormData({ firstName: "", lastName: "", email: "", message: "" });
+      } else {
+        console.error("Failed to send:", result.error);
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error("Network error:", err);
+      setStatus("error");
+    }
   };
 
   return (
-    <footer className="footer">
+    <footer className="footer" id="contact">
       <div className="footer-content">
 
         {/* LEFT SIDE */}
         <div className="footer-left">
-          <img
-            className="footer-logo"
-            src={valenciaAcctLogo}
-            alt="Valencia Accounting Logo"
-          />
+          <a href="#home" className="logo-container">
+            <picture>
+              <source
+                srcSet={valenciaAcctDarkModeLogo}
+                media="(prefers-color-scheme: dark)"
+              />
+              <img
+                className="main-logo"
+                src={valenciaAcctLogo}
+                alt="logo"
+              />
+            </picture>
+          </a>
 
           <p className="mission-text">
             At Valencia Accounting & Bookkeeping, we empower individuals and businesses
             to take control of their financial future with clarity and confidence.
-            {/* // We leverage our expertise in accounting to help individuals
-//     create effective budgets, manage and reduce debt, and provide clarity 
-//     on their financial position. For businesses, we offer comprehensive 
-//     financial guidance and preparation to ensure sound decision-making and 
-//     growth. Additionally, we provide expert tax preparation services for 
-//     both personal and corporate entities, helping our clients navigate the 
-//     complexities of taxes while ensuring long-term financial stability and 
-//     success. */}
           </p>
 
-<hr className="footer-divider" />
+          <hr className="footer-divider" />
           <div className="social-icons">
             <a href="https://www.instagram.com/valenciafinancial/" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
@@ -95,66 +89,81 @@ export default function Footer() {
         <div className="footer-right">
           <form id="consultation-form" onSubmit={handleSubmit}>
             <h2>Get in touch!</h2>
-<p className="footer-form-sub">We'll get back to you within one business day.</p>
+            <p className="footer-form-sub">We'll get back to you within one business day.</p>
 
             <div className="name-row">
+              <div className="form-group">
+                <label htmlFor="firstName">First Name *</label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  required
+                  value={formData.firstName}
+                  onChange={handleChange}
+                />
+              </div>
 
-<div className="form-group">
-  <label htmlFor="firstName">First Name *</label>
-  <input
-    id="firstName"
-    name="firstName"
-    type="text"
-    value={formData.firstName}
-    onChange={handleChange}
-  />
-</div>
-
-<div className="form-group">
-  <label htmlFor="lastName">Last Name *</label>
-  <input
-    id="lastName"
-    name="lastName"
-    type="text"
-    value={formData.lastName}
-    onChange={handleChange}
-  />
-</div>
-
-</div>
-<div className="form-group">
-  <label htmlFor="email">Email *</label>
-  <input
-    id="email"
-    name="email"
-    type="email"
-    value={formData.email}
-    onChange={handleChange}
-  />
-</div>
-
-<div className="form-group">
-  <label htmlFor="message">Message *</label>
-  <textarea
-    id="message"
-    name="message"
-    rows="4"
-    value={formData.message}
-    onChange={handleChange}
-  />
-</div>
-            <div className="submit-btn-container">
-              <button type="submit">Submit</button>
+              <div className="form-group">
+                <label htmlFor="lastName">Last Name *</label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  required
+                  value={formData.lastName}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email *</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                value={formData.message}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="submit-btn-container">
+              <button type="submit" disabled={status === "sending"}>
+                {status === "sending" ? "Sending..." : "Submit"}
+              </button>
+            </div>
+
+            {status === "success" && (
+              <p className="form-status success">Thanks! We'll be in touch within one business day.</p>
+            )}
+            {status === "error" && (
+              <p className="form-status error">Something went wrong. Please try again or email us directly.</p>
+            )}
           </form>
         </div>
 
       </div>
       <div className="footer-bottom">
-  <span>© {new Date().getFullYear()} Valencia Financial Group. All rights reserved.</span>
-  {/* <span> Hemet, CA </span> */}
-</div>
+        <span>© {new Date().getFullYear()} Valencia Financial Group. All rights reserved.{" "}
+          <NavLink to="/privacypolicy">Privacy Policy</NavLink> ·{" "}
+          <NavLink to="/terms">Terms of Use</NavLink>
+        </span>
+        <p className="built-by">Built by <a href="https://madeforurl.com">MadeForURL LLC</a></p>
+      </div>
     </footer>
-    
   );
 }

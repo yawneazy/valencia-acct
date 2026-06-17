@@ -1,0 +1,29 @@
+/* =========================
+   BIO SECTION
+========================= */
+.bio-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .home-bio-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  @media (max-width: 768px) {
+
+    .bio-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }  
