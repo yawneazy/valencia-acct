@@ -16,6 +16,7 @@
 
   color-scheme: light dark;
   font-family: 'Montserrat', sans-serif;
+  --color-bg-hero-top: rgba(221, 218, 213, 0.3);
 }
 
 .dark-logo {
@@ -31,7 +32,7 @@
     --color-med-green: #3D7A42;
     --color-dark-green: #1A4A1E;
     --color-footer: #2A2A28;
-
+    --color-bg-hero-top: rgba(30, 77, 30, 0.25);
     --color-bg: #121212;
     --color-text: #EDEDED;
   }
