@@ -1,8 +1,9 @@
-import { Resend } from "resend";
+const functions = require("firebase-functions");
+const { Resend } = require("resend");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(functions.config().resend.key);
 
-export default async function handler(req, res) {
+exports.contact = functions.https.onRequest(async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ success: false, error: "Method not allowed" });
   }
@@ -15,8 +16,7 @@ export default async function handler(req, res) {
 
   try {
     await resend.emails.send({
-      from: "Valencia Financial Group <onboarding@resend.dev>",
-      // from: "Valencia Financial Group <noreply@valenciafinancialgroup.com>",
+      from: "Valencia Financial Group <noreply@valenciafinancialgroup.com>",
       to: ["madeforurl@gmail.com"], // TODO: swap to client's email before launch
       replyTo: email,
       subject: `New contact form message from ${firstName} ${lastName}`,
@@ -33,4 +33,4 @@ export default async function handler(req, res) {
     console.error("RESEND ERROR:", error);
     return res.status(500).json({ success: false, error: error.message });
   }
-}
+});
