@@ -15,9 +15,12 @@ function Hero() {
                     </p>
 
                     <div className="hero-actions">
-                    <button className="cta-button">
+                    {/* <button className="cta-button">
                         Request a Consultation
-                    </button>
+                    </button> */}
+                              <div className="cta-btn">
+           <a href="#contact" className="cta-button"> Request a Consultation</a>
+          </div>
 
                     <a href="#services" className="secondary-link">
                         Explore Services ↓

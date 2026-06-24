@@ -6,14 +6,21 @@
 :root {
   --color-blue: #5C7E97;
   --color-light-green: #3B7542;
+  --color-nav-bottom: #5C7E97;
   --color-med-green: #26572A;
   --color-dark-green: #0C2D0E;
   /* beige */
   --color-footer: #DDDAD5;
-
-  --color-bg: #ffffff;
+  --color-border: rgba(221, 218, 213, 0.3);
+  --color-hero-border: #26572A;
+  --color-header-text: #111111;
+  --color-bg: #FFFFFF;
+  --color-services-bg: #F2F2F0;
   --color-text: #111111;
+  --color-bg-secondary: #f4f2ee;
+  --color-bg-hover: #eceae5;
 
+  --color-form-border: var(--color-dark-green);
   color-scheme: light dark;
   font-family: 'Montserrat', sans-serif;
   --color-bg-hero-top: rgba(221, 218, 213, 0.3);
@@ -30,11 +37,19 @@
     --color-blue: #7B9CB5;
     --color-light-green: #5C9A64;
     --color-med-green: #3D7A42;
-    --color-dark-green: #1A4A1E;
+    --color-dark-green: #1A4A1E;  
+    --color-border: #26572A;
+    --color-hero-border: #26572A;
+    --color-nav-bottom: #26572A;
+    --color-header-text: #FFFFFF;
+    --color-footer-header: #000000;
     --color-footer: #2A2A28;
     --color-bg-hero-top: rgba(30, 77, 30, 0.25);
+    --color-form-border: var(--color-light-green);
     --color-bg: #121212;
     --color-text: #EDEDED;
+    --color-bg-secondary: #1a1a1a;
+    --color-bg-hover: #222222;
   }
 
   .light-logo {

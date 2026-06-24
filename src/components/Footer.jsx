@@ -13,14 +13,11 @@ export default function Footer() {
     message: ""
   });
 
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [status, setStatus] = useState("idle");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -51,65 +48,43 @@ export default function Footer() {
 
   return (
     <footer className="footer" id="contact">
-      <div className="footer-content">
 
-        {/* LEFT SIDE */}
-        <div className="footer-left">
-          <a href="#home" className="logo-container">
-            <picture>
-              <source
-                srcSet={valenciaAcctDarkModeLogo}
-                media="(prefers-color-scheme: dark)"
-              />
-              <img
-                className="main-logo"
-                src={valenciaAcctLogo}
-                alt="logo"
-              />
-            </picture>
-          </a>
+      {/* TOP: heading + form side by side */}
+      <div className="footer-top">
+        <div className="footer-top-inner">
 
-          <p className="mission-text">
-            At Valencia Accounting & Bookkeeping, we empower individuals and businesses
-            to take control of their financial future with clarity and confidence.
-          </p>
-
-          <hr className="footer-divider" />
-          <div className="social-icons">
-            <a href="https://www.instagram.com/valenciafinancial/" target="_blank" rel="noopener noreferrer">
-              <FaInstagram />
-            </a>
-            <a href="https://www.linkedin.com/in/gabrielle-brosnan-1752a823a/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin />
-            </a>
+          {/* LEFT */}
+          <div className="footer-left">
+            <h2 className="footer-heading">Request a free consultation</h2>
+            <p className="footer-subtext">
+              No pressure, no jargon — just clarity on where you stand financially.
+            </p>
+            <div className="trust-signals">
+              <p className="trust-item">✓ Response within one business day</p>
+              <p className="trust-item">✓ Free initial consultation</p>
+            </div>
           </div>
-        </div>
 
-        {/* RIGHT SIDE — FORM */}
-        <div className="footer-right">
-          <form id="consultation-form" onSubmit={handleSubmit}>
-            <h2>Get in touch!</h2>
-            <p className="footer-form-sub">We'll get back to you within one business day.</p>
-
+          {/* RIGHT: form */}
+          <form className="footer-form" id="consultation-form" onSubmit={handleSubmit}>
             <div className="name-row">
               <div className="form-group">
-                <label htmlFor="firstName">First Name *</label>
                 <input
                   id="firstName"
                   name="firstName"
                   type="text"
+                  placeholder="First Name *"
                   required
                   value={formData.firstName}
                   onChange={handleChange}
                 />
               </div>
-
               <div className="form-group">
-                <label htmlFor="lastName">Last Name *</label>
                 <input
                   id="lastName"
                   name="lastName"
                   type="text"
+                  placeholder="Last Name *"
                   required
                   value={formData.lastName}
                   onChange={handleChange}
@@ -118,11 +93,11 @@ export default function Footer() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email *</label>
               <input
                 id="email"
                 name="email"
                 type="email"
+                placeholder="Email *"
                 required
                 value={formData.email}
                 onChange={handleChange}
@@ -130,11 +105,11 @@ export default function Footer() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Message *</label>
               <textarea
                 id="message"
                 name="message"
                 rows="4"
+                placeholder="Anything we should know?"
                 required
                 value={formData.message}
                 onChange={handleChange}
@@ -151,19 +126,47 @@ export default function Footer() {
               <p className="form-status success">Thanks! We'll be in touch within one business day.</p>
             )}
             {status === "error" && (
-              <p className="form-status error">Something went wrong. Please try again or email us directly.</p>
+              <p className="form-status error">Something went wrong. Please try again.</p>
             )}
           </form>
-        </div>
 
+        </div>
       </div>
-      <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} Valencia Financial Group. All rights reserved.{" "}
-          <NavLink to="/privacypolicy">Privacy Policy</NavLink> ·{" "}
-          <NavLink to="/terms">Terms of Use</NavLink>
-        </span>
-        <p className="built-by">Built by <a href="https://madeforurl.com">MadeForURL LLC</a></p>
+
+      {/* BOTTOM: logo, mission, socials, copyright */}
+      <div className="footer-bottom-bar">
+        <div className="footer-bottom-inner">
+          <div className="footer-bottom-top">
+            <a href="#home" className="logo-container">
+              <picture>
+                <source srcSet={valenciaAcctDarkModeLogo} media="(prefers-color-scheme: dark)" />
+                <img className="footer-logo" src={valenciaAcctLogo} alt="Valencia Financial Group logo" />
+              </picture>
+            </a>
+            <p className="mission-text">
+              At Valencia Accounting & Bookkeeping, we empower individuals and businesses
+              to take control of their financial future with clarity and confidence.
+            </p>
+            <div className="social-icons">
+              <a href="https://www.instagram.com/valenciafinancial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <FaInstagram />
+              </a>
+              <a href="https://www.linkedin.com/in/gabrielle-brosnan-1752a823a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <FaLinkedin />
+              </a>
+            </div>
+          </div>
+
+          <div className="footer-copyright">
+            <span>© {new Date().getFullYear()} Valencia Financial Group. All rights reserved.{" "}
+              <NavLink to="/privacypolicy">Privacy Policy</NavLink> ·{" "}
+              <NavLink to="/terms">Terms of Use</NavLink>
+            </span>
+            <p className="built-by">Built by <a href="https://madeforurl.com">MadeForURL LLC</a></p>
+          </div>
+        </div>
       </div>
+
     </footer>
   );
 }

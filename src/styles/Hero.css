@@ -43,7 +43,7 @@
 
 .hero-subtext span {
   font-weight: 600;
-  color: var(--color-dark-green);
+  color: var(--color-header-text);
 }
 
 .hero-actions {
@@ -51,19 +51,29 @@
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.cta-button,
+.secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .cta-button {
-  padding: 12px 24px;
-  background: var(--color-dark-green);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font: inherit;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-}
+    background: var(--color-dark-green);
+    color: white;
+    border: 1px solid transparent;
+  }
 
 .cta-button:hover {
   background: var(--color-med-green);
@@ -71,12 +81,9 @@
 }
 
 .secondary-link {
-  padding: 12px 24px;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  text-decoration: none;
+  background: transparent;
   color: var(--color-text);
-  transition: 0.3s;
+  border: 1px solid var(--color-hero-border);
 }
 
 .secondary-link:hover {

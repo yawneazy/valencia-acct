@@ -6,8 +6,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './components/Hero.jsx';
+import StatsBanner from './components/StatsBanner';
+import './styles/StatsBanner.css';
 import Services from './components/Services.jsx';
-// import Pricing from './components/Pricing.jsx';
+import Pricing from './components/Pricing.jsx';
 import About from './components/About.jsx';
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import Terms from "./pages/Terms.jsx";
@@ -23,8 +25,9 @@ function App() {
           element={
             <>
               <Hero />
+              {/* <StatsBanner/> */}
               <Services />
-              {/* <Pricing /> */}
+              <Pricing />
               <About />
               {/* <Connect /> */}
             </>
