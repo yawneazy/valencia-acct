@@ -17,7 +17,8 @@ export default async function handler(req, res) {
     await resend.emails.send({
       // from: "Valencia Financial Group <onboarding@resend.dev>",
       from: "Valencia Financial Group <noreply@valenciafinancialgroup.com>",
-      to: ["madeforurl@gmail.com"], // TODO: swap to client's email before launch
+      to: ["gbrosnan@valencia-acct.com"],
+      // to: ["madeforurl@gmail.com"], // TODO: swap to client's email before launch
       replyTo: email,
       subject: `New contact form message from ${firstName} ${lastName}`,
       html: `
