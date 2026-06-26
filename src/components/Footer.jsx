@@ -137,7 +137,7 @@ export default function Footer() {
       <div className="footer-bottom-bar">
         <div className="footer-bottom-inner">
           <div className="footer-bottom-top">
-            <a href="#home" className="logo-container">
+            <a href="#" className="logo-container">
               <picture>
                 <source srcSet={valenciaAcctDarkModeLogo} media="(prefers-color-scheme: dark)" />
                 <img className="footer-logo" src={valenciaAcctLogo} alt="Valencia Financial Group logo" />

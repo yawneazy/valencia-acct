@@ -1,62 +1,62 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import { Resend } from "resend";
-// import { google } from "googleapis";
+// import express from "express";
+// import cors from "cors";
+// import dotenv from "dotenv";
+// import { Resend } from "resend";
+// // import { google } from "googleapis";
 
-dotenv.config();
-const app = express();
+// dotenv.config();
+// const app = express();
 
-const corsOptions = {
-  origin: [
-    "https://valenciafinancialgroup.com",
-    "https://www.valenciafinancialgroup.com",
-    "https://valenciafinancialgroup.vercel.app"
-  ],
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
-};
+// const corsOptions = {
+//   origin: [
+//     "https://valenciafinancialgroup.com",
+//     "https://www.valenciafinancialgroup.com",
+//     "https://valenciafinancialgroup.vercel.app"
+//   ],
+//   methods: ["GET", "POST", "OPTIONS"],
+//   allowedHeaders: ["Content-Type"],
+// };
 
-app.use(cors(corsOptions));
-app.use(express.json());
+// app.use(cors(corsOptions));
+// app.use(express.json());
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
-app.post("/api/contact", async (req, res) => {
-    const { firstName, lastName, email, message } = req.body;
+// app.post("/api/contact", async (req, res) => {
+//     const { firstName, lastName, email, message } = req.body;
     
-    if (!firstName || !lastName || !email || !message) {
-        return res.status(400).json({ success: false, error: "All fields are required." });
-    }
-    try {
+//     if (!firstName || !lastName || !email || !message) {
+//         return res.status(400).json({ success: false, error: "All fields are required." });
+//     }
+//     try {
 
-        const data = await resend.emails.send({
-            from: "ValenciaFinancialGroup <gbrosnan@valencia-acct.com>",
-            to: "madeforurl@gmail.com", 
-            replyTo: email,
-            subject: `New Contact Form Message from ${firstName} ${lastName}`,
-            html: `
-                <h2>New Contact Form Submission</h2>
-                <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Message:</strong><br/>${message}</p>
-            `
-        });
+//         const data = await resend.emails.send({
+//             from: "ValenciaFinancialGroup <gbrosnan@valencia-acct.com>",
+//             to: "madeforurl@gmail.com", 
+//             replyTo: email,
+//             subject: `New Contact Form Message from ${firstName} ${lastName}`,
+//             html: `
+//                 <h2>New Contact Form Submission</h2>
+//                 <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+//                 <p><strong>Email:</strong> ${email}</p>
+//                 <p><strong>Message:</strong><br/>${message}</p>
+//             `
+//         });
 
-        return res.json({ success: true, data });
+//         return res.json({ success: true, data });
 
-    } catch (error) {
-        console.error("RESEND ERROR:", error);
+//     } catch (error) {
+//         console.error("RESEND ERROR:", error);
 
-        return res.status(500).json({
-            success: false,
-            error: error.message
-        });
-    }
-});
+//         return res.status(500).json({
+//             success: false,
+//             error: error.message
+//         });
+//     }
+// });
 
-const PORT = process.env.PORT || 8000 ;
+// const PORT = process.env.PORT || 8000 ;
 
-app.listen(PORT, () => {
-    console.log("Server running on port", PORT);
-});
+// app.listen(PORT, () => {
+//     console.log("Server running on port", PORT);
+// });

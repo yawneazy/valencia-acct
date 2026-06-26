@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import '../styles/Navbar.css';
 
-// logos
 import valenciaAcctLogo from '../images/main-logo-no-bckrd.jpg';
 import valenciaAcctDarkModeLogo from '../images/dark-mode-logo.png';
 
@@ -11,71 +11,73 @@ export default function Navbar() {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <header className={`header ${isHome ? "home" : "not-home"}`}>
+    <>
+      <header className={`header ${isHome ? "home" : "not-home"}`}>
+        <div className="nav-container">
 
-      <div className="nav-container">
+          {/* LEFT SIDE */}
+          <div className="nav-left">
+            <a href="/" className="logo-container" aria-label="Back to top">
+              <picture>
+                <source srcSet={valenciaAcctDarkModeLogo} media="(prefers-color-scheme: dark)" />
+                <img className="main-logo" src={valenciaAcctLogo} alt="Valencia Financial Group logo" />
+              </picture>
+            </a>
 
-        {/* LEFT SIDE (logo + links) */}
-        <div className="nav-left">
-
-          {/* Logo */}
-          <a href="#home" className="logo-container">
-          <picture>
-  <source
-    srcSet={valenciaAcctDarkModeLogo}
-    media="(prefers-color-scheme: dark)"
-  />
- <a href="#" aria-label="Back to top">
-  <img
-    className="main-logo"
-    src={valenciaAcctLogo}
-    alt="logo"
-  />
-</a>
-</picture>
-</a>
-
-          {/* Nav Links */}
-          <nav className="nav-links">
-            {/* <a href="#home">Home</a> */}
-            <a href="/#services">Services</a>
-            {/* <a href="/#pricing">Pricing</a> */}
-            <a href="/#about">About</a>
-          </nav>
-
-        </div>
-
-        {/* RIGHT SIDE (CTA + hamburger) */}
-        <div className="nav-right">
-
-          <div className="request-consultation-btn">
-           <a href="#contact" className="btn-link"> Request a Consultation</a>
+            <nav className="nav-links">
+              <a href="/#services">Services</a>
+              <a href="/#about">About</a>
+            </nav>
           </div>
 
-          <div
-            className="hamburger"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            ☰
+          {/* RIGHT SIDE */}
+          <div className="nav-right">
+            <div className="request-consultation-btn">
+              <a href="/#contact" className="btn-link">Request a Consultation</a>
+            </div>
+
+            <button
+  className={`hamburger ${menuOpen ? "open" : ""}`}
+  onClick={() => setMenuOpen(!menuOpen)}
+  aria-label={menuOpen ? "Close menu" : "Open menu"}
+>
+  <span className="hamburger-line" />
+  <span className="hamburger-line" />
+  <span className="hamburger-line" />
+</button>
           </div>
 
         </div>
+      </header>
 
-      </div>
+      {/* Overlay */}
+      <div
+        className={`mobile-overlay ${menuOpen ? "open" : ""}`}
+        onClick={closeMenu}
+      />
 
       {/* Mobile Menu */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        <nav className="nav-group">
+          <a href="/#services" onClick={closeMenu}>Services</a>
+          <a href="/#about" onClick={closeMenu}>About</a>
+          <a href="/#contact" onClick={closeMenu} className="mobile-cta">
+            Request a Consultation
+          </a>
+        </nav>
 
-        <div className="nav-group">
-          {/* <a href="#home" onClick={() => setMenuOpen(false)}>Home</a> */}
-          <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-          {/* <a href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</a> */}
-          <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+        <div className="mobile-socials">
+          <a href="https://www.instagram.com/valenciafinancial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <FaInstagram />
+          </a>
+          <a href="https://www.linkedin.com/in/gabrielle-brosnan-1752a823a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <FaLinkedin />
+          </a>
         </div>
-
       </div>
-
-    </header>
+    </>
   );
 }

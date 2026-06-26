@@ -12,8 +12,10 @@ export default function StatsBanner() {
       {stats.map((stat, index) => (
         <div key={index} className="stats-item">
           <span className="stats-icon">{stat.icon}</span>
-          <span className="stats-value">{stat.value}</span>
-          <span className="stats-label">{stat.label}</span>
+          <div className="stats-text">
+            <span className="stats-value">{stat.value}</span>
+            <span className="stats-label">{stat.label}</span>
+          </div>
         </div>
       ))}
     </div>

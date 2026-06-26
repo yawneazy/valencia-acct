@@ -244,6 +244,28 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  .footer-bottom-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-bottom-top .social-icons {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-bottom-top .logo-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .mission-text {
+    text-align: center;
+  }
+
   .footer-top {
     padding: 48px 20px;
   }

@@ -91,18 +91,6 @@
   color: var(--color-dark-green);
 }
 
-/* @media (prefers-color-scheme: dark) {
-  .secondary-link {
-    color: var(--color-text);
-    border-color: var(--color-hero-border);
-  }
-
-  .secondary-link:hover {
-    border-color: var(--color-light-green);
-    color: var(--color-light-green);
-  }
-} */
-
 @media (prefers-color-scheme: dark) {
   .secondary-link {
     color: var(--color-text);
@@ -112,5 +100,26 @@
   .secondary-link:hover {
     border-color: var(--color-light-green);
     color: var(--color-light-green);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .cta-btn {
+    display: flex;
+  }
+
+  .cta-button,
+  .secondary-link {
+    width: 100%;
+    text-align: center;
   }
 }
