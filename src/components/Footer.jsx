@@ -123,7 +123,7 @@ export default function Footer() {
             </div>
 
             {status === "success" && (
-              <p className="form-status success">Thanks! We'll be in touch within one business day.</p>
+              <p className="form-status success">Thanks! I'll be in touch with you as soon as possible.</p>
             )}
             {status === "error" && (
               <p className="form-status error">Something went wrong. Please try again.</p>
