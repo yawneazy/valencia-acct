@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import '../styles/PrivacyPolicy.css';
 
 function PrivacyPolicy() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className="legal-page">
             <div className="privacy-right-side">
                 <h1>Privacy Policy</h1>
-                <p>Last updated: May 2026</p>
+                <p>Last updated: {new Date().toLocaleDateString()}</p>
             </div>
             <div className="privacy-left-side">
                 <h2>For Website Visitors</h2>
@@ -87,7 +92,7 @@ function PrivacyPolicy() {
 
             <h2>Contact</h2>
             <p>
-                If you have any questions or concerns about the above Privacy Policy, please contact us at madeforurl@gmail.com.
+                If you have any questions or concerns about the above Privacy Policy, please contact us at gbrosnan@valencia-acct.com.
             </p>
         </div>
         </div>

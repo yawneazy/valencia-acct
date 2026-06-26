@@ -26,20 +26,22 @@ export default function Navbar() {
     srcSet={valenciaAcctDarkModeLogo}
     media="(prefers-color-scheme: dark)"
   />
+ <a href="#" aria-label="Back to top">
   <img
     className="main-logo"
     src={valenciaAcctLogo}
     alt="logo"
   />
+</a>
 </picture>
 </a>
 
           {/* Nav Links */}
           <nav className="nav-links">
             {/* <a href="#home">Home</a> */}
-            <a href="#services">Services</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#about">About</a>
+            <a href="/#services">Services</a>
+            {/* <a href="/#pricing">Pricing</a> */}
+            <a href="/#about">About</a>
           </nav>
 
         </div>
@@ -68,7 +70,7 @@ export default function Navbar() {
         <div className="nav-group">
           {/* <a href="#home" onClick={() => setMenuOpen(false)}>Home</a> */}
           <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-          <a href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</a>
+          {/* <a href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</a> */}
           <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
         </div>
 

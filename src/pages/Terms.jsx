@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Terms.css';
 
 function Terms() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className="terms-page">
 
             {/* LEFT SIDE (title) */}
             <div className="terms-right-side">
                 <h1>Terms of Use</h1>
-                <p>Last updated: May 2026</p>
+                <p>Last updated: {new Date().toLocaleDateString()}</p>
             </div>
 
             {/* RIGHT SIDE (content) */}
@@ -16,7 +20,7 @@ function Terms() {
 
                 <h2>1. Use of Website</h2>
                 <p>
-                    This website is intended to provide information about MadeForURL’s custom website design and development services.
+                    This website is intended to provide information about Valencia Financial Group’s custom website design and development services.
                 </p>
 
                 <p>
@@ -32,7 +36,7 @@ function Terms() {
 
                 <h2>2. Intellectual Property</h2>
                 <p>
-                    Unless otherwise stated, all content on this website — including text, graphics, logos, layouts, and visuals — is the property of MadeForURL and is protected by copyright and intellectual property laws.
+                    Unless otherwise stated, all content on this website — including text, graphics, logos, layouts, and visuals — is the property of Valencia Financial Group and is protected by copyright and intellectual property laws.
                 </p>
 
                 <p>
@@ -55,7 +59,7 @@ function Terms() {
 
                 <h2>5. Limitation of Liability</h2>
                 <p>
-                    To the fullest extent permitted by law, MadeForURL is not liable for any damages or losses arising from your use of this website, including indirect or incidental damages.
+                    To the fullest extent permitted by law, Valencia Financial Group is not liable for any damages or losses arising from your use of this website, including indirect or incidental damages.
                 </p>
 
                 <h2>6. Privacy</h2>

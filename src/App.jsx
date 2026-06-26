@@ -25,9 +25,9 @@ function App() {
           element={
             <>
               <Hero />
-              {/* <StatsBanner/> */}
+              <StatsBanner/>
               <Services />
-              <Pricing />
+              {/* <Pricing /> */}
               <About />
               {/* <Connect /> */}
             </>

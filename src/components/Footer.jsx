@@ -60,8 +60,8 @@ export default function Footer() {
               No pressure, no jargon — just clarity on where you stand financially.
             </p>
             <div className="trust-signals">
-              <p className="trust-item">✓ Response within one business day</p>
-              <p className="trust-item">✓ Free initial consultation</p>
+              <p className="trust-item"> Response within one business day</p>
+              <p className="trust-item"> Free initial consultation</p>
             </div>
           </div>
 

@@ -1,4 +1,3 @@
-
 .services {
   padding: 5rem 2rem;
   text-align: center;
@@ -173,5 +172,55 @@
 
   .services-detail {
     padding: 24px 20px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .services {
+    background: #1a1a1a;
+  }
+
+  .services-panel {
+    border-color: #2a2a2a;
+  }
+
+  .services-list {
+    background: #1e1e1e;
+    border-right-color: #2a2a2a;
+  }
+
+  .services-list-item {
+    color: #aaa;
+    border-bottom-color: #2a2a2a;
+  }
+
+  .services-list-item:hover {
+    background: #252525;
+    color: var(--color-med-green);
+  }
+
+  .services-list-item.active {
+    background: #121212;
+    color: var(--color-light-green);
+  }
+
+  .services-detail {
+    background: #121212;
+  }
+
+  .services-detail h3 {
+    color: #FFFFFF;
+  }
+
+  .services-detail p {
+    color: #aaa;
+  }
+
+  .services-detail ul li {
+    color: #ccc;
+  }
+
+  .services-title {
+    color: white;
   }
 }
