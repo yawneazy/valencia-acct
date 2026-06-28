@@ -126,7 +126,7 @@ export default function Footer() {
               <p className="form-status success">Thanks! I'll be in touch with you as soon as possible.</p>
             )}
             {status === "error" && (
-              <p className="form-status error">Something went wrong. Please try again.</p>
+              <p className="form-status error">Something went wrong. Please email me instead at: gbrosnan@valencia-acct.com</p>
             )}
           </form>
 
@@ -148,6 +148,9 @@ export default function Footer() {
               to take control of their financial future with clarity and confidence.
             </p>
             <div className="social-icons">
+            {/* <a href="" target="_blank" rel="noopener noreferrer" aria-label="Email">
+                <FaInstagram />
+              </a> */}
               <a href="https://www.instagram.com/valenciafinancial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram />
               </a>

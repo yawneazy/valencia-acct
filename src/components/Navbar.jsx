@@ -23,7 +23,8 @@ export default function Navbar() {
             <a href="/" className="logo-container" aria-label="Back to top">
               <picture>
                 <source srcSet={valenciaAcctDarkModeLogo} media="(prefers-color-scheme: dark)" />
-                <img className="main-logo" src={valenciaAcctLogo} alt="Valencia Financial Group logo" />
+                <img className="main-logo" src={valenciaAcctLogo} alt="Valencia Financial Group logo" /> 
+                {/* <img className="main-logo" src={valenciaAcctLogo} alt="Valencia Financial Group logo" /> */}
               </picture>
             </a>
 

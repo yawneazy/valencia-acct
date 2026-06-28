@@ -4,27 +4,47 @@ import '../styles/Hero.css';
 function Hero() {
     return (
         <section className="hero" id="home">
-                <div className="hero-content">
-                    <h1 className="hero-title">
-                    Conquer your biggest financial fears.
-                    </h1>
-
-                    <p className="hero-subtext">
-                    Get clarity. Get confidence. Build financial peace of mind with
-                    <span> Valencia Financial Group.</span>
-                    </p>
-
-                    <div className="hero-actions">
-                              <div className="cta-btn">
-           <a href="#contact" className="cta-button"> Request a Consultation</a>
+      <div className="hero-content">
+        <p className="hero-eyebrow">CTEC Licensed · 10+ Years Experience</p>
+        <h1 className="hero-title">
+          Conquer your biggest <em>financial fears.</em>
+        </h1>
+        <p className="hero-subtext">
+          Get clarity. Get confidence. Build financial peace of mind with
+          <span> Valencia Financial Group.</span>
+        </p>
+        <div className="hero-actions">
+          <div className="cta-btn">
+            <a href="#contact" className="cta-button">Request a Consultation</a>
           </div>
+          <a href="#services" className="secondary-link">
+            Explore Services ↓
+          </a>
+        </div>
+      </div>
+    </section>
+        // <section className="hero" id="home">
+        //         <div className="hero-content">
+        //             <h1 className="hero-title">
+        //             Conquer your biggest financial fears.
+        //             </h1>
 
-                    <a href="#services" className="secondary-link">
-                        Explore Services ↓
-                    </a>
-                    </div>
-                </div>
-        </section> 
+        //             <p className="hero-subtext">
+        //             Get clarity. Get confidence. Build financial peace of mind with
+        //             <span> Valencia Financial Group.</span>
+        //             </p>
+
+        //             <div className="hero-actions">
+        //                       <div className="cta-btn">
+        //    <a href="#contact" className="cta-button"> Request a Consultation</a>
+        //   </div>
+
+        //             <a href="#services" className="secondary-link">
+        //                 Explore Services ↓
+        //             </a>
+        //             </div>
+        //         </div>
+        // </section> 
     );
 }
 export default Hero;
